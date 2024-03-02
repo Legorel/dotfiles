@@ -3,3 +3,5 @@
 	name = Legorel
 [init]
 	defaultBranch = master
+[credential]
+	helper = store # This is unsafe.
