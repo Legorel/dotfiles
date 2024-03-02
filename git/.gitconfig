@@ -5,3 +5,4 @@
 	defaultBranch = master
 [credential]
 	helper = store # This is unsafe.
+	useHttpPath = true
