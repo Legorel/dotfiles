@@ -1,0 +1,52 @@
+mdi: &mdi Material Icons 5
+djvsm: &djvsm DeJaVu Sans Mono 12
+
+bar:
+  location: top
+  height: 25
+  background: 00000099
+  layer: top
+  spacing: 10
+  margin: 10
+  border:
+    width: 0
+    color: 00000000
+    top-margin: 10
+    bottom-margin: 0
+    left-margin: 10
+    right-margin: 10
+  font: *djvsm
+  foreground: &fg B0B0B0ff
+  trackpad-sensitivity: 30
+    #left:
+
+  center:
+    - clock:
+        font: *djvsm
+        foreground: *fg
+        time-format: "%H:%M"
+        date-format: "%e/%m/%y %a"
+        content:
+          string:
+            font: *djvsm
+            text: "{date} {time}"
+    - battery:
+        font: *djvsm
+        foreground: *fg
+        name: BAT0
+        poll-interval: 3600
+        content:
+          - string:
+              text: "{capacity}%"
+            
+
+  right:
+    - network:
+        name: wlan0
+        poll-interval: 3600
+        content:
+          string:
+            font: *djvsm
+            foreground: *fg
+            text: "{ssid}({ipv4}|{mac}) on {name}: {state}"
+    

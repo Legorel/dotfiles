@@ -1,0 +1,28 @@
+#!/bin/sh
+
+
+normal_packages='bash dunst foot git hypr scripts systemd tmux wlogout yambar'
+git_submodule_packages='nvim'
+
+
+install() {
+	echo $#
+	for package in $normal_packages; do
+		stow $package
+	done
+}
+
+uninstall() {
+	for package in $normal_packages; do
+		stow -D $package
+	done
+}
+
+case $1 in
+	i|install)
+		install
+		;;
+	u|uninstall)
+		uninstall
+		;;
+esac

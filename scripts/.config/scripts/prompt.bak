@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Color modes.
+fg() { echo "\[\e[3$1m\]"; }
+bg() { echo "\[\e[4$1m\]"; }
+bd() { echo "\[\e[1m\]"; }
+nm() { echo "\[\e[m\]"; }
+
+
+# Powerline glyphs.
+# Format: {l(eft)/r(right)}{f(ull)/h(ollow) or u(p)/d(own) for triangle}{d(ivider)/t(riangle)/c(ircle)}
+#lfd='\ue0b0'
+#lhd='\ue0b1'
+#rfd'\ue0b2'
+#rhd'\ue0b3'
+#ldt'\ue0b8'
+#rdt'\ue0ba'
+#rdt'\ue0bc'
+#rut'\ue0be'
+#lfc'\ue0b6'
+#lhc'\ue0b7'
+#rfc'\ue0b4'
+#rhc'\ue0b5'
+
+# If outside of the home dir.
+dir=$(realpath --relative-to ~/ $(pwd))
+if [ ${dir:0:2} = ".." ]; then
+		echo " $(fg 6)\u$(fg 9)@$(fg 6)\h$(fg 4) \W$(fg 9) \$$(nm) "
+else
+  	# If inside the home dir.
+	echo "$(fg 6) \u$(fg 9)@$(fg 6)\h $(fg 0)$(bg 4)$(fg 9) \W $(fg 4)$(bg 0)$(nm)"'$(__git_ps1 " (%s) ")'
+fi
