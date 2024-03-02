@@ -37,6 +37,6 @@ else
 		echo "$uh $(fg 0)$(bg 4)$(fg 9) \W $(fg 4)$(bg 0)$(nm)"
 	else
 		branch="$(git branch | sed -n 's/^\* //p')"
-		echo "$uh $(fg 0)$(bg 4)$(fg 9) \W $(fg 4)$(bg 3)$(fg 0) $branch $(fg 3)$(bg 0)$(nm)"
+		echo "$uh $(fg 0)$(bg 4)$(fg 9) \W $(fg 4)$(bg 3)$(fg 0)  $branch $(fg 3)$(bg 0)$(nm)"
 	fi
 fi
