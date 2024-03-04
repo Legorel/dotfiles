@@ -1,19 +1,27 @@
 #!/bin/sh
 
 
-normal_packages='bash dunst foot git hypr scripts systemd tmux wlogout yambar'
+normal_packages='bash dunst foot git hypr scripts systemd tmux wlogout yambar gBar'
 git_submodule_packages='nvim'
 
 
 install() {
-	echo $#
 	for package in $normal_packages; do
+		stow $package
+	done
+	
+	git submodule update --init
+	for package in $git_submodule_packages; do
 		stow $package
 	done
 }
 
 uninstall() {
 	for package in $normal_packages; do
+		stow -D $package
+	done
+
+	for package in $git_submodule_packages; do
 		stow -D $package
 	done
 }
