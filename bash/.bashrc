@@ -23,6 +23,9 @@ alias cdiff='diff --color=always'
 alias cpacman='pacman --color=always'
 alias less='less -R'
 
+alias cp='cp -i'
+alias mv='mv -i'
+
 alias lsl='ls -l'
 alias lsa='ls -A'
 alias lsla='ls -lA'
