@@ -15,7 +15,7 @@ def cliphist_list(text):
         t = line.split("\t")
         if len(t) < 2:
             quit(2)
-        id, text = t
+        id, text = t[0], '\t'.join(t[1:])
         entries[text] = id
         inputs = inputs + "\n" + text
 
@@ -29,7 +29,7 @@ def main():
     p = Popen(["bemenu", "-i", "-l", "10", "-c", "-W", "0.8", "-p", ""], stdout=PIPE, stdin=PIPE, stderr=PIPE, text=True)
     selected_text = p.communicate(input=inputs)[0][:-1]
     
-    if not selected_text in entries.keys():
+    if not selected_text in entries:
         quit(1)
     print(entries[selected_text] + "\t" + selected_text, end='')
     quit(0)

@@ -20,6 +20,7 @@ alias grep='grep --color=auto'
 alias cgrep='grep --color=always'
 alias diff='diff --color=auto'
 alias cdiff='diff --color=always'
+alias pacman='pacman --color=auto'
 alias cpacman='pacman --color=always'
 alias less='less -R'
 
@@ -30,8 +31,10 @@ alias lsl='ls -l'
 alias lsa='ls -A'
 alias lsla='ls -lA'
 
-alias hp='exec Hyprland > .hyprland/hypr.log'
+alias hp='mkdir -p .hyprland/ && exec Hyprland > .hyprland/hypr.log'
 alias e='neovide'
+alias bemenu='bemenu --fn "JetBrains Mono"'
+alias bemenu-run='bemenu-run --fn "JetBrains Mono"'
 
 
 # Functions
