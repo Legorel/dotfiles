@@ -13,10 +13,12 @@ function toggle {
 
 br_up() {
 	light -A $1
+	dunstify -u normal -h int:value:$(light -G) 'Changed brightness'
 }
 
 br_down() {
 	light -U $1
+	dunstify -u normal -h int:value:$(light -G) 'Changed brightness'
 }
 
 
