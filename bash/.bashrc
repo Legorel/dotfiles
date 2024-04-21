@@ -32,7 +32,6 @@ alias lsa='ls -A'
 alias lsla='ls -lA'
 
 alias hp='mkdir -p .hyprland/ && exec Hyprland > .hyprland/hypr.log'
-alias e='neovide'
 alias bemenu='bemenu --fn "JetBrains Mono"'
 alias bemenu-run='bemenu-run --fn "JetBrains Mono"'
 
@@ -50,6 +49,23 @@ cdr() {
 	if [ -f ~/.chooseddir ]; then
 		cd $(cat ~/.chooseddir)
 		rm ~/.chooseddir
+	fi
+}
+
+e() {
+	pgrep neovide >/dev/null
+	if [ $? -eq 0 ] && [ -S ~/.sockets/nvim ]; then
+		nvim --server ~/.sockets/nvim --remote $@
+	else
+		hyprctl --batch "dispatch workspace 1; dispatch exec neovide -- --listen ~/.sockets/nvim $@"
+	fi
+}
+et() {
+	pgrep neovide >/dev/null
+	if [ $? -eq 0 ] && [ -S ~/.sockets/nvim ]; then
+		nvim --server ~/.sockets/nvim --remote-tab $@
+	else
+		hyprctl --batch "dispatch workspace 1; dispatch exec neovide -- --listen ~/.sockets/nvim $@"
 	fi
 }
 
