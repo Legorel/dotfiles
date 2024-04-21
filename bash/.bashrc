@@ -42,6 +42,16 @@ loadocaml() {
 	eval $(opam env)
 }
 
+cdr() {
+	rm -f ~/.chooseddir
+	 # The target path must be a relative path from current directory.
+	ranger --choosedir ~/.chooseddir
+
+	if [ -f ~/.chooseddir ]; then
+		cd $(cat ~/.chooseddir)
+		rm ~/.chooseddir
+	fi
+}
 
 # Prompt
 if [[ $XDG_SESSION_TYPE = "wayland" ]]; then
