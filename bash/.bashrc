@@ -55,17 +55,17 @@ cdr() {
 e() {
 	pgrep neovide >/dev/null
 	if [ $? -eq 0 ] && [ -S ~/.sockets/nvim ]; then
-		nvim --server ~/.sockets/nvim --remote $@
+		nvim --server ~/.sockets/nvim --remote $(realpath $@)
 	else
-		hyprctl --batch "dispatch workspace 1; dispatch exec neovide -- --listen ~/.sockets/nvim $@"
+		hyprctl --batch "dispatch workspace 1; dispatch exec neovide -- --listen ~/.sockets/nvim $(realpath $@)"
 	fi
 }
 et() {
 	pgrep neovide >/dev/null
 	if [ $? -eq 0 ] && [ -S ~/.sockets/nvim ]; then
-		nvim --server ~/.sockets/nvim --remote-tab $@
+		nvim --server ~/.sockets/nvim --remote-tab $(realpath $@)
 	else
-		hyprctl --batch "dispatch workspace 1; dispatch exec neovide -- --listen ~/.sockets/nvim $@"
+		hyprctl --batch "dispatch workspace 1; dispatch exec neovide -- --listen ~/.sockets/nvim $(realpath $@)"
 	fi
 }
 
