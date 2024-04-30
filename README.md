@@ -15,6 +15,7 @@ Almost all of my dotfiles.
 - wlogout
 - waybar
 - yambar \(will probably be removed, as i'm moving to waybar\)
+- zathura
 - shell scripts
 
 ## Install
@@ -23,13 +24,13 @@ Clone the repository into your home folder \(e.g. `git clone https://github.com/
 Some packages are git submodules. If you want to use their config, you have to also clone the submodules:
 
 ```bash
-git submodule init
+git submodule update --init --recursive
 ```
 
 And when you need to update them:
 
 ```bash
-git submodule update
+git submodule update --recursive
 ```
 
 ### Using GNU Stow
