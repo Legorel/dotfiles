@@ -30,7 +30,7 @@ git submodule update --init --recursive
 And when you need to update them:
 
 ```bash
-git submodule update --recursive
+git submodule update --recursive --remote
 ```
 
 ### Using GNU Stow
@@ -59,4 +59,4 @@ There is also a sh script `config` that uses stow to install/unsinstall packages
 
 ### Manually
 
-Use an external tool, copy the file by yourself, or use any other method that fits you.
+Use an external tool, copy the files by yourself, or use any other method that fits you.
